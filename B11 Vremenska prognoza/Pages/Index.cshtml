@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<label for="grad">Izaberite grad</label>
+
+<select name="gradovi" id="grad" asp-for="Grad" onchange="PromeniLink(this.value)">
+    <option value="https://naslovi.net/vremenska-prognoza/beograd">Beograd</option>
+    <option value="https://naslovi.net/vremenska-prognoza/nis">Nis</option>
+    <option value="https://naslovi.net/vremenska-prognoza/novi-sad">Novi Sad</option>
+    <option value="https://naslovi.net/vremenska-prognoza/kragujevac">Kragujevac</option>
+    <option value="https://naslovi.net/vremenska-prognoza/valjevo">Valjevo</option>
+    <option value="https://naslovi.net/vremenska-prognoza/loznica">Loznica</option>
+</select>
+
+<iframe id="iframeEl" src="https://naslovi.net/vremenska-prognoza/" width="1000px" height="500px"></iframe>
+
+<script>
+    function PromeniLink(link) {
+        var frame = document.getElementById('iframeEl');
+        frame.src = link;
+    }
+</script>
